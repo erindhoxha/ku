@@ -14,7 +14,7 @@ export default function Tab() {
         Zgjedhni nje nga opsionet me poshte:
       </Text>
       <XStack gap="$3">
-        <Link href="../session" asChild>
+        <Link href="../sessionForm" asChild>
           <Button theme="green" marginTop={12}>
             Krijo nje session
           </Button>

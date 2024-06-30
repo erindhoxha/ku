@@ -4,114 +4,39 @@ import { Image, StyleSheet, TouchableOpacity, View, type ImageSourcePropType } f
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
-import { H2, SizableText, Stack, Text } from 'tamagui';
+import { H1, H2, SizableText, Stack, Text } from 'tamagui';
 import { AvatarDemo } from '../../components/Avatar';
 
-const IMAGES: ImageSourcePropType[] = [require('../../assets/1.avif')];
+const SESSIONS = [
+  {
+    title: 'Session 1',
+    description: 'Description 1',
+    type: 'Type 1',
+  },
+  {
+    title: 'Session 2',
+    description: 'Description 2',
+    type: 'Type 2',
+  },
+  {
+    title: 'Session 3',
+    description: 'Description 3',
+    type: 'Type 3',
+  },
+];
 
 const Tab = () => {
-  const ref = useRef<SwiperCardRefType>();
-
-  const renderCard = useCallback((image: ImageSourcePropType) => {
-    return (
-      <View style={styles.renderCardContainer}>
-        <Image source={image} style={styles.renderCardImage} resizeMode="cover" />
-      </View>
-    );
-  }, []);
-  const OverlayLabelRight = useCallback(() => {
-    return (
-      <View
-        style={[
-          styles.overlayLabelContainer,
-          {
-            backgroundColor: 'green',
-          },
-        ]}
-      />
-    );
-  }, []);
-
-  const OverlayLabelLeft = useCallback(() => {
-    return (
-      <View
-        style={[
-          styles.overlayLabelContainer,
-          {
-            backgroundColor: 'red',
-          },
-        ]}
-      />
-    );
-  }, []);
-
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <Stack>
-        <H2 marginBottom={12}>Ku po hajme sonte!?</H2>
-        <Text>Prishtine, Kosove</Text>
-        <Text>
-          Type:{' '}
-          <SizableText theme="light_surface1" size="$3">
-            Restaurant
-          </SizableText>
-        </Text>
-        <AvatarDemo />
-      </Stack>
-      <View style={styles.subContainer}>
-        <Swiper
-          ref={ref}
-          cardStyle={styles.cardStyle}
-          data={IMAGES}
-          renderCard={renderCard}
-          onSwipeRight={(cardIndex) => {
-            console.log('cardIndex', cardIndex);
-          }}
-          onSwipedAll={() => {
-            console.log('onSwipedAll');
-          }}
-          onSwipeLeft={(cardIndex) => {
-            console.log('onSwipeLeft', cardIndex);
-          }}
-          disableTopSwipe
-          OverlayLabelRight={OverlayLabelRight}
-          OverlayLabelLeft={OverlayLabelLeft}
-          onSwipeActive={() => {
-            console.log('onSwipeActive');
-          }}
-          onSwipeStart={() => {
-            console.log('onSwipeStart');
-          }}
-          onSwipeEnd={() => {
-            console.log('onSwipeEnd');
-          }}
-        />
-      </View>
-
-      <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={[styles.button, styles.dangerButton]}
-          onPress={() => {
-            ref.current?.swipeLeft();
-          }}>
-          <AntDesign name="close" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, { height: 60, marginHorizontal: 10 }]}
-          onPress={() => {
-            ref.current?.swipeBack();
-          }}>
-          <AntDesign name="reload1" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.successButton]}
-          onPress={() => {
-            ref.current?.swipeRight();
-          }}>
-          <AntDesign name="heart" size={32} color="white" />
-        </TouchableOpacity>
-      </View>
-    </GestureHandlerRootView>
+    <View style={styles.container}>
+      <H1>Sessions</H1>
+      {SESSIONS.map((session, index) => (
+        <View key={index}>
+          <Text>{session.title}</Text>
+          <Text>{session.description}</Text>
+          <Text>{session.type}</Text>
+        </View>
+      ))}
+    </View>
   );
 };
 

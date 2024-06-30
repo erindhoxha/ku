@@ -1,76 +1,184 @@
-import { Link } from 'expo-router';
-import { View, Text, StyleSheet } from 'react-native';
-import { useEffect, useState } from 'react';
-import type { SizeTokens } from 'tamagui';
-import { Button, H1, Stack, Form, H4, Spinner, YStack, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
+/* eslint-disable react-native/no-inline-styles */
+import React, { useCallback, useRef } from 'react';
+import { Image, StyleSheet, TouchableOpacity, View, type ImageSourcePropType } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { AntDesign } from '@expo/vector-icons';
+import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
+import { H2, SizableText, Stack, Text } from 'tamagui';
+import { AvatarDemo } from '../components/Avatar';
 
-export default function Tab() {
-  const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off');
+const IMAGES: ImageSourcePropType[] = [require('../assets/1.avif')];
 
-  useEffect(() => {
-    if (status === 'submitting') {
-      const timer = setTimeout(() => setStatus('off'), 2000);
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [status]);
+const Tab = () => {
+  const ref = useRef<SwiperCardRefType>();
+
+  const renderCard = useCallback((image: ImageSourcePropType) => {
+    return (
+      <View style={styles.renderCardContainer}>
+        <Image source={image} style={styles.renderCardImage} resizeMode="cover" />
+      </View>
+    );
+  }, []);
+  const OverlayLabelRight = useCallback(() => {
+    return (
+      <View
+        style={[
+          styles.overlayLabelContainer,
+          {
+            backgroundColor: 'green',
+          },
+        ]}
+      />
+    );
+  }, []);
+
+  const OverlayLabelLeft = useCallback(() => {
+    return (
+      <View
+        style={[
+          styles.overlayLabelContainer,
+          {
+            backgroundColor: 'red',
+          },
+        ]}
+      />
+    );
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <H1 marginBottom={12}>Krijo sessionin</H1>
-      <Text>Zgjedh titullin dhe tipin</Text>
-      <Form
-        minWidth={300}
-        onSubmit={() => setStatus('submitting')}
-        borderWidth={1}
-        borderRadius="$4"
-        borderColor="$borderColor"
-        width={'100%'}
-        padding="">
-        {/* <H4>{status[0].toUpperCase() + status.slice(1)}</H4> */}
+    <GestureHandlerRootView style={styles.container}>
+      <Stack>
+        <H2 marginBottom={12}>Ku po hajme sonte!?</H2>
+        <Text>Prishtine, Kosove</Text>
+        <Text>
+          Type:{' '}
+          <SizableText theme="light_surface1" size="$3">
+            Restaurant
+          </SizableText>
+        </Text>
+        <AvatarDemo />
+      </Stack>
+      <View style={styles.subContainer}>
+        <Swiper
+          ref={ref}
+          cardStyle={styles.cardStyle}
+          data={IMAGES}
+          renderCard={renderCard}
+          onSwipeRight={(cardIndex) => {
+            console.log('cardIndex', cardIndex);
+          }}
+          onSwipedAll={() => {
+            console.log('onSwipedAll');
+          }}
+          onSwipeLeft={(cardIndex) => {
+            console.log('onSwipeLeft', cardIndex);
+          }}
+          disableTopSwipe
+          OverlayLabelRight={OverlayLabelRight}
+          OverlayLabelLeft={OverlayLabelLeft}
+          onSwipeActive={() => {
+            console.log('onSwipeActive');
+          }}
+          onSwipeStart={() => {
+            console.log('onSwipeStart');
+          }}
+          onSwipeEnd={() => {
+            console.log('onSwipeEnd');
+          }}
+        />
+      </View>
 
-        <Stack gap="0">
-          <Label theme="blue" size="$4" htmlFor="title">
-            Title
-          </Label>
-          <Input theme="blue" size="$4" />
-        </Stack>
-
-        <Stack>
-          <Label theme="blue" size="$4" htmlFor="description">
-            Description
-          </Label>
-          <Input
-            onSubmitEditing={() => {
-              console.log('submit');
-              // submit form
-            }}
-            theme="blue"
-            size="$4"
-          />
-        </Stack>
-
-        <Stack>
-          <Label theme="blue" size="$4" htmlFor="description">
-            Type
-          </Label>
-        </Stack>
-
-        <Form.Trigger asChild disabled={status !== 'off'}>
-          <Button theme="blue" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
-            Submit
-          </Button>
-        </Form.Trigger>
-      </Form>
-    </View>
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={[styles.button, styles.dangerButton]}
+          onPress={() => {
+            ref.current?.swipeLeft();
+          }}>
+          <AntDesign name="close" size={32} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, { height: 60, marginHorizontal: 10 }]}
+          onPress={() => {
+            ref.current?.swipeBack();
+          }}>
+          <AntDesign name="reload1" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, styles.successButton]}
+          onPress={() => {
+            ref.current?.swipeRight();
+          }}>
+          <AntDesign name="heart" size={32} color="white" />
+        </TouchableOpacity>
+      </View>
+    </GestureHandlerRootView>
   );
-}
+};
+
+export default Tab;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
     padding: 24,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    bottom: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    height: 80,
+    borderRadius: 40,
+    marginHorizontal: 20,
+    aspectRatio: 1,
+    backgroundColor: 'gray',
+    elevation: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: 'black',
+    shadowOpacity: 0.1,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+  successButton: {
+    backgroundColor: 'green',
+  },
+  dangerButton: {
+    backgroundColor: 'red',
+  },
+  buttonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  cardStyle: {
+    width: '100%',
+    height: '75%',
+    borderRadius: 15,
+    marginVertical: 20,
+  },
+  renderCardContainer: {
+    flex: 1,
+    borderRadius: 15,
+    height: '75%',
+    width: '100%',
+  },
+  renderCardImage: {
+    height: '100%',
+    width: '100%',
+    borderRadius: 15,
+  },
+  subContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  overlayLabelContainer: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 15,
   },
 });
