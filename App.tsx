@@ -18,7 +18,7 @@ export default () => {
   return (
     <TamaguiProvider config={tamaguiConfig}>
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
       </View>
     </TamaguiProvider>
   );

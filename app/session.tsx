@@ -7,7 +7,15 @@ import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
 import { H2, SizableText, Stack, Text } from 'tamagui';
 import { AvatarDemo } from '../components/Avatar';
 
-const IMAGES: ImageSourcePropType[] = [require('../assets/1.avif')];
+const IMAGES: ImageSourcePropType[] = [
+  require('../assets/1.avif'),
+  require('../assets/1.avif'),
+  require('../assets/1.avif'),
+  require('../assets/1.avif'),
+  require('../assets/1.avif'),
+  require('../assets/1.avif'),
+  require('../assets/1.avif'),
+];
 
 const Tab = () => {
   const ref = useRef<SwiperCardRefType>();
@@ -121,6 +129,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
+    overflow: 'hidden',
   },
   buttonsContainer: {
     flexDirection: 'row',

@@ -1,11 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useCallback, useRef } from 'react';
-import { Image, StyleSheet, TouchableOpacity, View, type ImageSourcePropType } from 'react-native';
+import { Image, StyleSheet, Touchable, TouchableOpacity, View, type ImageSourcePropType } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
-import { H1, H2, SizableText, Stack, Text } from 'tamagui';
+import { H1, H2, SizableText, Stack, Text, XStack, YStack } from 'tamagui';
 import { AvatarDemo } from '../../components/Avatar';
+import { Link } from 'expo-router';
 
 const SESSIONS = [
   {
@@ -25,17 +26,43 @@ const SESSIONS = [
   },
 ];
 
-const Tab = () => {
+const Tab = ({ navigate }) => {
   return (
     <View style={styles.container}>
-      <H1>Sessions</H1>
-      {SESSIONS.map((session, index) => (
-        <View key={index}>
-          <Text>{session.title}</Text>
-          <Text>{session.description}</Text>
-          <Text>{session.type}</Text>
-        </View>
-      ))}
+      <H1 marginBottom={24}>Sessions</H1>
+      <YStack gap="$3">
+        {SESSIONS.map((session, index) => (
+          <Link
+            href="/session"
+            style={{
+              borderColor: 'rgba(0,0,0,0.1)',
+              borderWidth: 1,
+              borderRadius: 4,
+            }}>
+            <YStack
+              key={index}
+              gap="$1"
+              style={{
+                padding: 12,
+              }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'semibold',
+                }}>
+                {session.title}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                }}>
+                {session.description}
+              </Text>
+              <Text>{session.type}</Text>
+            </YStack>
+          </Link>
+        ))}
+      </YStack>
     </View>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
-import { Button, H1, XStack } from 'tamagui';
+import { Button, H1, H2, XStack } from 'tamagui';
 
 export default function Tab() {
   return (
@@ -19,10 +19,14 @@ export default function Tab() {
             Krijo nje session
           </Button>
         </Link>
+      </XStack>
+      <H2 marginTop={24}>Sessions</H2>
+      <Text>Keni 3 sessions pa match</Text>
+      <Link href="./sessions" asChild>
         <Button theme="blue" marginTop={12}>
           Shiko sessionet
         </Button>
-      </XStack>
+      </Link>
     </View>
   );
 }
