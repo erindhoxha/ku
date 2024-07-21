@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
-import { Button, H1, Stack, Form, H4, Spinner, YStack, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
+import { Button, H1, Stack, Form, H4, Spinner, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
+import { SelectDemo } from '../components/Select';
 
 export default function Tab() {
   const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off');
@@ -15,8 +16,7 @@ export default function Tab() {
   }, [status]);
   return (
     <View style={styles.container}>
-      <H1 marginBottom={12}>Krijo sessionin</H1>
-      <Text>Zgjedh titullin dhe tipin</Text>
+      <H1 marginBottom={12}>Krijo nje sesion</H1>
       <Form
         minWidth={300}
         onSubmit={() => setStatus('submitting')}
@@ -29,29 +29,29 @@ export default function Tab() {
 
         <Stack gap="0">
           <Label theme="blue" size="$4" htmlFor="title">
-            Title
+            Titulli
           </Label>
-          <Input theme="blue" size="$4" />
+          <Input placeholder="P.sh ku po hajme sonte?" size="$4" />
         </Stack>
 
         <Stack>
           <Label theme="blue" size="$4" htmlFor="description">
-            Description
+            Detajet
           </Label>
-          <Input
+          <TextArea
             onSubmitEditing={() => {
               console.log('submit');
               // submit form
             }}
-            theme="blue"
             size="$4"
           />
         </Stack>
 
         <Stack>
           <Label theme="blue" size="$4" htmlFor="description">
-            Type
+            Tipi
           </Label>
+          <SelectDemo />
         </Stack>
 
         <Form.Trigger asChild disabled={status !== 'off'}>

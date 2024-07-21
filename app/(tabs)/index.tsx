@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
-import { Button, H1, H2, XStack } from 'tamagui';
+import { Button, H1, H2 } from 'tamagui';
 
 export default function Tab() {
   return (
