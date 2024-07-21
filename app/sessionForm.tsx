@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, H1, Stack, Form, H4, Spinner, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
-import { SelectDemo, SelectDemoItem } from '../components/Select';
+import { SelectDemoItem } from '../components/Select';
 
 export default function Tab() {
   const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off');
@@ -47,7 +47,7 @@ export default function Tab() {
           />
         </Stack>
 
-        <Stack>
+        <Stack marginBottom={24}>
           <Label theme="blue" size="$4" htmlFor="description">
             Tipi
           </Label>
@@ -55,8 +55,8 @@ export default function Tab() {
         </Stack>
 
         <Form.Trigger asChild disabled={status !== 'off'}>
-          <Button theme="blue" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
-            Submit
+          <Button theme="green" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
+            Krijo
           </Button>
         </Form.Trigger>
       </Form>

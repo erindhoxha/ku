@@ -5,12 +5,14 @@ import type { SelectProps } from 'tamagui';
 import { Adapt, Label, Select, Sheet, XStack, YStack, Text, PortalProvider } from 'tamagui';
 
 import { LinearGradient } from 'tamagui/linear-gradient';
+import Entypo from '@expo/vector-icons/Entypo';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export function SelectDemoItem(props: SelectProps) {
   const [val, setVal] = useState('apple');
   return (
     <PortalProvider>
-      <Select value={val} onValueChange={setVal} disablePreventBodyScroll {...props}>
+      <Select value={val || 'apple'} onValueChange={setVal} disablePreventBodyScroll {...props}>
         <Select.Trigger width={'100%'}>
           <Select.Value placeholder="Something" />
         </Select.Trigger>
@@ -72,7 +74,7 @@ export function SelectDemoItem(props: SelectProps) {
                       <Select.Item index={i} key={item.name} value={item.name.toLowerCase()}>
                         <Select.ItemText>{item.name}</Select.ItemText>
                         <Select.ItemIndicator marginLeft="auto">
-                          <Text>Check</Text>
+                          <AntDesign name="checkcircle" size={24} color="green" />
                         </Select.ItemIndicator>
                       </Select.Item>
                     );
@@ -94,7 +96,7 @@ export function SelectDemoItem(props: SelectProps) {
                 justifyContent="center"
                 width={'$4'}
                 pointerEvents="none">
-                <Text>Down</Text>
+                <Entypo name="chevron-down" size={24} color="black" />
               </YStack>
             )}
           </Select.Viewport>
