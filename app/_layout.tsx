@@ -22,12 +22,13 @@ export default function AppLayout() {
           headerStyle: {
             backgroundColor: '#000',
           },
+          title: 'asd',
+          headerBackTitle: 'Back',
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
           headerTitle: (props) => {
-            console.log(props);
             return (
               <Text
                 style={{

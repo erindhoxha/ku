@@ -30,7 +30,7 @@ const SESSIONS = [
   },
 ];
 
-const Tab = ({ navigate }) => {
+const Tab = () => {
   return (
     <View style={styles.container}>
       <H1 marginBottom={24}>Sessions</H1>

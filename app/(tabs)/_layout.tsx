@@ -8,6 +8,7 @@ export default function TabLayout() {
       sceneContainerStyle={{
         backgroundColor: '#fff',
       }}
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'gray',
