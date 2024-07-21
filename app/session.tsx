@@ -4,29 +4,67 @@ import { Image, StyleSheet, TouchableOpacity, View, type ImageSourcePropType } f
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
-import { H2, SizableText, Stack, Text } from 'tamagui';
+import { Avatar, H2, SizableText, Stack, Text, XStack } from 'tamagui';
 import { AvatarDemo } from '../components/Avatar';
 
-const IMAGES: ImageSourcePropType[] = [
-  require('../assets/1.avif'),
-  require('../assets/1.avif'),
-  require('../assets/1.avif'),
-  require('../assets/1.avif'),
-  require('../assets/1.avif'),
-  require('../assets/1.avif'),
-  require('../assets/1.avif'),
+const IMAGES = [
+  {
+    url: require('../assets/1.avif'),
+    title: 'Kassarita',
+    location: 'Rruga Leke Dukagjini, 19',
+  },
+  {
+    url: require('../assets/2.avif'),
+    title: 'Bon Vivant',
+    location: 'Sheshi Skenderbeu, 122',
+  },
+  {
+    url: require('../assets/3.avif'),
+    title: 'Waffle House',
+    location: 'Rruga G SU 8, 122',
+  },
 ];
 
 const Tab = () => {
   const ref = useRef<SwiperCardRefType>();
 
-  const renderCard = useCallback((image: ImageSourcePropType) => {
+  const renderCard = useCallback((image: { url: ImageSourcePropType; title: string; location: string }) => {
     return (
       <View style={styles.renderCardContainer}>
-        <Image source={image} style={styles.renderCardImage} resizeMode="cover" />
+        <View
+          style={{
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            width: '100%',
+            position: 'absolute',
+            zIndex: 2,
+            bottom: 0,
+            right: 0,
+            paddingHorizontal: 24,
+            paddingVertical: 20,
+          }}>
+          <Text
+            style={{
+              fontSize: 24,
+              zIndex: 2,
+              color: 'white',
+              marginBottom: 6,
+            }}>
+            {image?.title}
+          </Text>
+          <Text
+            style={{
+              fontSize: 14,
+              zIndex: 2,
+              color: 'white',
+            }}>
+            {image?.location}
+          </Text>
+        </View>
+        <Image source={image?.url} style={styles.renderCardImage} resizeMode="cover" />
       </View>
     );
   }, []);
+
   const OverlayLabelRight = useCallback(() => {
     return (
       <View
@@ -42,7 +80,7 @@ const Tab = () => {
             fontWeight: 'bold',
           }}
           color="white">
-          Yes
+          Like
         </Text>
       </View>
     );
@@ -63,7 +101,7 @@ const Tab = () => {
             fontWeight: 'bold',
           }}
           color="white">
-          Nope
+          Dislike
         </Text>
       </View>
     );
@@ -73,14 +111,43 @@ const Tab = () => {
     <GestureHandlerRootView style={styles.container}>
       <Stack>
         <H2 marginBottom={12}>Ku po hajme sonte!?</H2>
-        <Text>Prishtine, Kosove</Text>
+        <AvatarDemo />
+        <XStack gap="$2" marginBottom={12}>
+          <Text>
+            Created by:{' '}
+            <Text
+              style={{
+                fontWeight: 'bold',
+              }}>
+              Erind Hoxha
+            </Text>
+          </Text>
+          <Avatar circular size="$1">
+            <Avatar.Image
+              accessibilityLabel="Nate Wienert"
+              src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?&w=100&h=100&dpr=2&q=80"
+            />
+            <Avatar.Fallback delayMs={600} backgroundColor="$blue10" />
+          </Avatar>
+        </XStack>
+        <Text>
+          Area:{' '}
+          <Text
+            style={{
+              fontWeight: 'bold',
+            }}>
+            Prishtine, Kosove
+          </Text>
+        </Text>
         <Text>
           Type:{' '}
-          <SizableText theme="light_surface1" size="$3">
-            Restaurant
-          </SizableText>
+          <Text
+            style={{
+              fontWeight: 'bold',
+            }}>
+            Restaurants, Nightlife
+          </Text>
         </Text>
-        <AvatarDemo />
       </Stack>
       <View style={styles.subContainer}>
         <Swiper
@@ -181,15 +248,12 @@ const styles = StyleSheet.create({
   },
   cardStyle: {
     width: '100%',
-    height: '75%',
+    height: '85%',
     borderRadius: 15,
-    marginVertical: 20,
   },
   renderCardContainer: {
-    flex: 1,
     borderRadius: 15,
-    height: '75%',
-    width: '100%',
+    overflow: 'hidden',
   },
   renderCardImage: {
     height: '100%',
@@ -208,5 +272,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 24,
   },
 });

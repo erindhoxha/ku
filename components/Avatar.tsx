@@ -1,8 +1,10 @@
+import { Link } from 'expo-router';
 import { Avatar, Text, XStack } from 'tamagui';
 
 export function AvatarDemo() {
   return (
-    <XStack marginTop="$4" alignItems="flex-start" justifyContent="flex-start" gap="$1">
+    <XStack alignItems="flex-start" justifyContent="flex-start" gap="$1">
+      <Text marginBottom={12}>5 invited: </Text>
       <Avatar circular size="$1">
         <Avatar.Image
           accessibilityLabel="Cam"

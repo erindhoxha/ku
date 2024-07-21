@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { H1, Text, XStack, YStack } from 'tamagui';
 import { Link } from 'expo-router';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 const SESSIONS = [
   {
@@ -36,7 +37,7 @@ const Tab = () => {
             key={session?.description}
             href="/session"
             style={{
-              borderColor: session.result ? 'green' : 'rgba(0,0,0,0.1)',
+              borderColor: 'rgba(0,0,0,0.1)',
               borderWidth: 1,
               borderRadius: 12,
             }}>
@@ -47,16 +48,21 @@ const Tab = () => {
                 padding: 12,
               }}>
               <XStack justifyContent="space-between" width="100%">
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 'bold',
-                  }}>
-                  {session.title}
-                </Text>
+                <XStack gap="$2">
+                  {session.result ? <AntDesign name="checkcircle" size={16} color="#99d98c" /> : null}
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      fontWeight: 'bold',
+                      color: session.result ? 'rgba(0,0,0,0.5)' : 'black',
+                    }}>
+                    {session.title}
+                  </Text>
+                </XStack>
                 <Text
                   style={{
                     fontSize: 12,
+                    color: session.result ? 'rgba(0,0,0,0.5)' : 'black',
                   }}>
                   {session.date}
                 </Text>
@@ -64,12 +70,14 @@ const Tab = () => {
               <Text
                 style={{
                   fontSize: 12,
+                  color: session.result ? 'rgba(0,0,0,0.5)' : 'black',
                 }}>
                 {session.description}
               </Text>
               <Text
                 style={{
                   fontSize: 12,
+                  color: session.result ? 'rgba(0,0,0,0.5)' : 'black',
                 }}>
                 {session.type}
               </Text>
