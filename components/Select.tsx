@@ -74,7 +74,7 @@ export function SelectDemoItem(props: SelectProps) {
                       <Select.Item index={i} key={item.name} value={item.name.toLowerCase()}>
                         <Select.ItemText>{item.name}</Select.ItemText>
                         <Select.ItemIndicator marginLeft="auto">
-                          <AntDesign name="checkcircle" size={24} color="green" />
+                          <AntDesign name="checkcircle" size={24} color="#99d98c" />
                         </Select.ItemIndicator>
                       </Select.Item>
                     );

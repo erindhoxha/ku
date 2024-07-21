@@ -33,10 +33,18 @@ const Tab = () => {
         style={[
           styles.overlayLabelContainer,
           {
-            backgroundColor: 'green',
+            backgroundColor: '#52b69a',
           },
-        ]}
-      />
+        ]}>
+        <Text
+          style={{
+            fontSize: 32,
+            fontWeight: 'bold',
+          }}
+          color="white">
+          Yes
+        </Text>
+      </View>
     );
   }, []);
 
@@ -46,10 +54,18 @@ const Tab = () => {
         style={[
           styles.overlayLabelContainer,
           {
-            backgroundColor: 'red',
+            backgroundColor: '#ee6055',
           },
-        ]}
-      />
+        ]}>
+        <Text
+          style={{
+            fontSize: 32,
+            fontWeight: 'bold',
+          }}
+          color="white">
+          Nope
+        </Text>
+      </View>
     );
   }, []);
 
@@ -142,7 +158,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     marginHorizontal: 20,
     aspectRatio: 1,
-    backgroundColor: 'gray',
+    backgroundColor: '#ff9914',
     elevation: 4,
     justifyContent: 'center',
     alignItems: 'center',
@@ -154,10 +170,10 @@ const styles = StyleSheet.create({
     },
   },
   successButton: {
-    backgroundColor: 'green',
+    backgroundColor: '#52b69a',
   },
   dangerButton: {
-    backgroundColor: 'red',
+    backgroundColor: '#ee6055',
   },
   buttonText: {
     fontSize: 20,
@@ -189,5 +205,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: 15,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
