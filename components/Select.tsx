@@ -5,32 +5,13 @@ import type { SelectProps } from 'tamagui';
 import { Adapt, Label, Select, Sheet, XStack, YStack, Text, PortalProvider } from 'tamagui';
 
 import { LinearGradient } from 'tamagui/linear-gradient';
-export function SelectDemo() {
-  return (
-    <YStack gap="$4">
-      <XStack ai="center" gap="$4">
-        <Label htmlFor="select-demo-1" f={1} miw={80}>
-          Custom
-        </Label>
 
-        <SelectDemoItem id="select-demo-1" />
-      </XStack>
-      <XStack ai="center" gap="$4">
-        <Label htmlFor="select-demo-2" f={1} miw={80}>
-          Native
-        </Label>
-
-        <SelectDemoItem id="select-demo-2" native />
-      </XStack>
-    </YStack>
-  );
-}
 export function SelectDemoItem(props: SelectProps) {
   const [val, setVal] = useState('apple');
   return (
     <PortalProvider>
       <Select value={val} onValueChange={setVal} disablePreventBodyScroll {...props}>
-        <Select.Trigger width={220}>
+        <Select.Trigger width={'100%'}>
           <Select.Value placeholder="Something" />
         </Select.Trigger>
         <Adapt when="sm" platform="touch">

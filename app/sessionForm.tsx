@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, H1, Stack, Form, H4, Spinner, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
-import { SelectDemo } from '../components/Select';
+import { SelectDemo, SelectDemoItem } from '../components/Select';
 
 export default function Tab() {
   const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off');
@@ -51,7 +51,7 @@ export default function Tab() {
           <Label theme="blue" size="$4" htmlFor="description">
             Tipi
           </Label>
-          <SelectDemo />
+          <SelectDemoItem />
         </Stack>
 
         <Form.Trigger asChild disabled={status !== 'off'}>
