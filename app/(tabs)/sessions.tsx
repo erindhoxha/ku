@@ -1,11 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useCallback, useRef } from 'react';
-import { Image, StyleSheet, Touchable, TouchableOpacity, View, type ImageSourcePropType } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { AntDesign } from '@expo/vector-icons';
-import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
-import { H1, H2, SizableText, Stack, Text, XStack, YStack } from 'tamagui';
-import { AvatarDemo } from '../../components/Avatar';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { H1, Text, XStack, YStack } from 'tamagui';
 import { Link } from 'expo-router';
 
 const SESSIONS = [
