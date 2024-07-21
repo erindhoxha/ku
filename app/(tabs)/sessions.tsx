@@ -10,19 +10,23 @@ import { Link } from 'expo-router';
 
 const SESSIONS = [
   {
-    title: 'Session 1',
+    title: 'Session 1 / Ongoing',
     description: 'Description 1',
     type: 'Type 1',
+    date: '12/07/24',
   },
   {
-    title: 'Session 2',
+    title: 'Session 2 / Ongoing',
     description: 'Description 2',
     type: 'Type 2',
+    date: '12/07/24',
   },
   {
-    title: 'Session 3',
+    title: 'Session 3 / Matched',
+    result: 'Drymades beach',
     description: 'Description 3',
     type: 'Type 3',
+    date: '12/07/24',
   },
 ];
 
@@ -35,9 +39,9 @@ const Tab = ({ navigate }) => {
           <Link
             href="/session"
             style={{
-              borderColor: 'rgba(0,0,0,0.1)',
+              borderColor: session.result ? 'green' : 'rgba(0,0,0,0.1)',
               borderWidth: 1,
-              borderRadius: 4,
+              borderRadius: 12,
             }}>
             <YStack
               key={index}
@@ -45,20 +49,33 @@ const Tab = ({ navigate }) => {
               style={{
                 padding: 12,
               }}>
+              <XStack justifyContent="space-between" width="100%">
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                  }}>
+                  {session.title}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                  }}>
+                  {session.date}
+                </Text>
+              </XStack>
               <Text
                 style={{
-                  fontSize: 20,
-                  fontWeight: 'semibold',
-                }}>
-                {session.title}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 14,
+                  fontSize: 12,
                 }}>
                 {session.description}
               </Text>
-              <Text>{session.type}</Text>
+              <Text
+                style={{
+                  fontSize: 12,
+                }}>
+                {session.type}
+              </Text>
             </YStack>
           </Link>
         ))}
