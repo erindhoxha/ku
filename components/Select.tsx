@@ -1,9 +1,6 @@
 import { useMemo, useState } from 'react';
-
 import type { SelectProps } from 'tamagui';
-
-import { Adapt, Label, Select, Sheet, XStack, YStack, Text, PortalProvider } from 'tamagui';
-
+import { Adapt, Select, Sheet, YStack, Text, PortalProvider } from 'tamagui';
 import { LinearGradient } from 'tamagui/linear-gradient';
 import Entypo from '@expo/vector-icons/Entypo';
 import AntDesign from '@expo/vector-icons/AntDesign';
@@ -32,7 +29,6 @@ export function SelectDemoItem(props: SelectProps) {
                 <Adapt.Contents />
               </Sheet.ScrollView>
             </Sheet.Frame>
-
             <Sheet.Overlay animation="lazy" enterStyle={{ opacity: 0 }} exitStyle={{ opacity: 0 }} />
           </Sheet>
         </Adapt>
@@ -55,18 +51,9 @@ export function SelectDemoItem(props: SelectProps) {
               borderRadius="$4"
             />
           </Select.ScrollUpButton>
-          <Select.Viewport
-            // to do animations:
-            // animation="quick"
-            // animateOnly={['transform', 'opacity']}
-            // enterStyle={{ o: 0, y: -10 }}
-            // exitStyle={{ o: 0, y: 10 }}
-            minWidth={200}>
+          <Select.Viewport minWidth={200}>
             <Select.Group>
               <Select.Label>Fruits</Select.Label>
-
-              {/* for longer lists memoizing these is useful */}
-
               {useMemo(
                 () =>
                   items.map((item, i) => {
@@ -79,13 +66,9 @@ export function SelectDemoItem(props: SelectProps) {
                       </Select.Item>
                     );
                   }),
-
                 [items],
               )}
             </Select.Group>
-
-            {/* Native gets an extra icon */}
-
             {props.native && (
               <YStack
                 position="absolute"
@@ -109,7 +92,6 @@ export function SelectDemoItem(props: SelectProps) {
             <YStack zIndex={10}>
               <Text>Down</Text>
             </YStack>
-
             <LinearGradient
               start={[0, 0]}
               end={[0, 1]}

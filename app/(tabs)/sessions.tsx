@@ -37,6 +37,7 @@ const Tab = () => {
       <YStack gap="$3">
         {SESSIONS.map((session, index) => (
           <Link
+            key={session?.description}
             href="/session"
             style={{
               borderColor: session.result ? 'green' : 'rgba(0,0,0,0.1)',
