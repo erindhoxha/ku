@@ -1,5 +1,6 @@
 import { useContext, createContext, type PropsWithChildren } from 'react';
 import { useStorageState } from './useStorageState';
+import { useRouter } from 'expo-router';
 
 const AuthContext = createContext<{
   signIn: () => void;
@@ -21,7 +22,6 @@ export function useSession() {
       throw new Error('useSession must be wrapped in a <SessionProvider />');
     }
   }
-
   return value;
 }
 
@@ -36,7 +36,7 @@ export function SessionProvider({ children }: PropsWithChildren) {
           setSession('xxx');
         },
         signOut: () => {
-          setSession(null);
+          setSession('');
         },
         session,
         isLoading,
