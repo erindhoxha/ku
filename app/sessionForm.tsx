@@ -17,7 +17,7 @@ export default function Tab() {
   return (
     <View style={styles.container}>
       <H1 color="$white" marginBottom={12}>
-        Krijo nje sesion
+        Krijo nje votim
       </H1>
       <Form
         minWidth={300}

@@ -1,6 +1,4 @@
-import { Link, Stack } from 'expo-router';
-import { Platform, Text } from 'react-native';
-import { CreateTokens, TamaguiProvider, ThemeProvider, createTamagui, createTokens } from '@tamagui/core';
+import { TamaguiProvider } from '@tamagui/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LogBox } from 'react-native';
 import { SessionProvider } from './context/AuthContext';

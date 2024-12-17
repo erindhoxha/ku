@@ -23,6 +23,7 @@ const StackComponent = () => {
           fontWeight: 'bold',
         },
         headerTitle: (props) => {
+          console.log(props);
           return (
             <Text
               style={{
@@ -30,7 +31,7 @@ const StackComponent = () => {
                 fontSize: 18,
                 fontWeight: '500',
               }}>
-              Ku?
+              {props.children === '(app)' ? 'Ku?' : ''}
             </Text>
           );
         },
