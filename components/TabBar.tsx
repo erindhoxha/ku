@@ -6,6 +6,10 @@ const unfocusedColor = 'rgb(103, 103, 103)';
 const fontSize = 14;
 
 export const TabBar = ({ state, descriptors, navigation }) => {
+  const icons = {
+    index: (props) => <FontAwesome size={20} name="home" color={props.color} />,
+    sessions: (props) => <FontAwesome size={20} name="folder" color={props.color} />,
+  };
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
@@ -38,6 +42,8 @@ export const TabBar = ({ state, descriptors, navigation }) => {
           });
         };
 
+        console.log('ROUTE', route.name);
+
         return (
           <TouchableOpacity
             key={index}
@@ -48,7 +54,9 @@ export const TabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1, flexDirection: 'column', alignItems: 'center', gap: 4, justifyContent: 'center' }}>
-            <FontAwesome size={20} name="home" color={isFocused ? focusedColor : unfocusedColor} />
+            {icons[route.name]({
+              color: isFocused ? focusedColor : unfocusedColor,
+            })}
             <Text style={[styles.text, { color: isFocused ? focusedColor : unfocusedColor }]}>{label}</Text>
           </TouchableOpacity>
         );

@@ -23,7 +23,6 @@ const StackComponent = () => {
           fontWeight: 'bold',
         },
         headerTitle: (props) => {
-          console.log(props);
           return (
             <Text
               style={{
