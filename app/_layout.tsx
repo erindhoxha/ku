@@ -1,23 +1,15 @@
 import { Link, Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { Text } from 'react-native';
-import { TamaguiProvider, createTamagui } from '@tamagui/core';
-import { config } from '@tamagui/config/v3';
+import { Platform, Text } from 'react-native';
+import { CreateTokens, TamaguiProvider, ThemeProvider, createTamagui, createTokens } from '@tamagui/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const tamaguiConfig = createTamagui(config);
-
-type Conf = typeof tamaguiConfig;
-declare module '@tamagui/core' {
-  interface TamaguiCustomConfig extends Conf {}
-}
+import { LogBox } from 'react-native';
+import { SessionProvider } from './context/AuthContext';
+import StackComponent from './pages/stack';
+import config from '../tamagui.config';
+import { StatusBar } from 'expo-status-bar';
 
 const queryClient = new QueryClient();
 
-import { LogBox } from 'react-native';
-import { SessionProvider, useSession } from './context/AuthContext';
-import { useEffect } from 'react';
-import StackComponent from './pages/stack';
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
@@ -25,7 +17,7 @@ export default function AppLayout() {
   return (
     <SessionProvider>
       <QueryClientProvider client={queryClient}>
-        <TamaguiProvider config={tamaguiConfig}>
+        <TamaguiProvider config={config}>
           <StatusBar style="light" />
           <StackComponent />
         </TamaguiProvider>

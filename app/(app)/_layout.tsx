@@ -1,7 +1,8 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Redirect, Tabs } from 'expo-router';
+import { Tabs } from 'expo-router';
 import { Text, View } from 'tamagui';
 import { useSession } from '../context/AuthContext';
+import { TabBar } from '../../components/TabBar';
 
 export default function TabLayout() {
   const { session, isLoading } = useSession();
@@ -21,40 +22,27 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      sceneContainerStyle={{
-        backgroundColor: '#fff',
-      }}
-      initialRouteName="Home"
+      tabBar={TabBar}
+      initialRouteName="index"
       screenOptions={{
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
-        tabBarBackground: () => {
-          return (
-            <View
-              style={{
-                backgroundColor: '#000',
-                flexDirection: 'row',
-                height: '100%',
-              }}
-            />
-          );
-        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          headerTitle: 'Home',
-          tabBarLabel: 'Home',
+          title: "N'shpi",
+          headerTitle: "N'shpi",
+          tabBarLabel: "N'shpi",
           tabBarIcon: ({ color }) => <FontAwesome size={24} name="home" color={color} />,
         }}
       />
       <Tabs.Screen
         name="sessions"
         options={{
-          title: 'Sessions',
-          tabBarLabel: 'Sessions',
+          title: 'Votimet',
+          tabBarLabel: 'Votimet',
           tabBarIcon: ({ color }) => <FontAwesome size={24} name="map-pin" color={color} />,
         }}
       />

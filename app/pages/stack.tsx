@@ -1,7 +1,8 @@
 import { Link, Stack } from 'expo-router';
-import { Text } from 'react-native';
+import { StatusBar, Text } from 'react-native';
 import { useSession } from '../context/AuthContext';
 import { useEffect } from 'react';
+import { getTokens, Header, View } from 'tamagui';
 
 const StackComponent = () => {
   const { signOut, session } = useSession();
@@ -14,7 +15,7 @@ const StackComponent = () => {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#000',
+          backgroundColor: 'rgb(12, 12, 12)',
         },
         headerBackTitle: 'Back',
         headerTintColor: '#fff',
@@ -27,9 +28,9 @@ const StackComponent = () => {
               style={{
                 color: 'white',
                 fontSize: 18,
-                fontWeight: 'bold',
+                fontWeight: '500',
               }}>
-              Ku.com
+              Ku?
             </Text>
           );
         },
@@ -42,6 +43,7 @@ const StackComponent = () => {
                   color: 'white',
                   fontSize: 16,
                   marginRight: 16,
+                  fontWeight: '500',
                 }}>
                 Log Out
               </Text>
@@ -51,6 +53,7 @@ const StackComponent = () => {
                   color: 'white',
                   fontSize: 16,
                   marginRight: 16,
+                  fontWeight: '500',
                 }}
                 href="../sign-in"
                 className="text-white">

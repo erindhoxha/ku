@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
-import { Button, H1, Stack, Form, H4, Spinner, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
-import { SelectDemoItem } from '../components/Select';
+import { H1, Stack, Form, H4, Spinner, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
+import Button from '../components/Button';
 
 export default function Tab() {
   const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off');
@@ -16,7 +16,9 @@ export default function Tab() {
   }, [status]);
   return (
     <View style={styles.container}>
-      <H1 marginBottom={12}>Krijo nje sesion</H1>
+      <H1 color="$white" marginBottom={12}>
+        Krijo nje sesion
+      </H1>
       <Form
         minWidth={300}
         onSubmit={() => setStatus('submitting')}
@@ -24,14 +26,29 @@ export default function Tab() {
         borderRadius="$4"
         borderColor="$borderColor"
         width={'100%'}
+        gap="$1"
         padding="">
-        {/* <H4>{status[0].toUpperCase() + status.slice(1)}</H4> */}
-
-        <Stack gap="0">
-          <Label theme="blue" size="$4" htmlFor="title">
+        {/* <H4 color="$white">{status[0].toUpperCase() + status.slice(1)}</H4> */}
+        <Stack gap="$0">
+          <Label theme="blue" color="$white" size="$4" htmlFor="title">
             Titulli
           </Label>
-          <Input placeholder="P.sh ku po hajme sonte?" size="$4" />
+          <Input
+            theme="blue"
+            placeholder="P.sh ku po hajme sonte?"
+            placeholderTextColor="rgb(70, 98, 138)"
+            style={{
+              borderRadius: 4,
+              borderWidth: 1,
+              borderColor: 'rgb(47, 61, 80)',
+              padding: 0,
+              height: 42,
+              color: 'white',
+              fontSize: 16,
+              marginLeft: 0,
+              paddingLeft: 12,
+            }}
+          />
         </Stack>
 
         <Stack>
@@ -39,23 +56,27 @@ export default function Tab() {
             Detajet
           </Label>
           <TextArea
+            placeholderTextColor="rgb(70, 98, 138)"
             onSubmitEditing={() => {
               console.log('submit');
               // submit form
             }}
-            size="$4"
+            placeholder="P.sh hajde po knaqemi sonte ne..."
+            rows={12}
+            theme="blue"
+            style={{
+              borderRadius: 4,
+              borderWidth: 1,
+              borderColor: 'rgb(47, 61, 80)',
+              color: 'white',
+              fontSize: 16,
+              paddingLeft: 12,
+              minHeight: 100,
+            }}
           />
         </Stack>
-
-        <Stack marginBottom={24}>
-          <Label theme="blue" size="$4" htmlFor="description">
-            Tipi
-          </Label>
-          <SelectDemoItem />
-        </Stack>
-
         <Form.Trigger asChild disabled={status !== 'off'}>
-          <Button theme="green" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
+          <Button theme="blue" size="$4" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
             Krijo
           </Button>
         </Form.Trigger>
@@ -70,5 +91,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     padding: 24,
+    backgroundColor: 'rgb(5, 5, 5)',
   },
 });
