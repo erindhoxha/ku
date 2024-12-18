@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 import { H1, Stack, Form, H4, Spinner, Input, TextArea, TextAreaFrame, Label, Select } from 'tamagui';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 
 export default function Tab() {
   const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off');

@@ -1,7 +1,7 @@
 import { TamaguiProvider } from '@tamagui/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LogBox } from 'react-native';
-import { SessionProvider } from './context/AuthContext';
+import SessionProvider from './context/AuthContext';
 import StackComponent from './pages/stack';
 import config from '../tamagui.config';
 import { StatusBar } from 'expo-status-bar';

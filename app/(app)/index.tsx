@@ -46,7 +46,7 @@ export default function Tab() {
         />
         <H2 color="$white">Krijo nje votim</H2>
         <Text color="$white">Krijo nje votim, dhe pastaj shperndaje me grupin:</Text>
-        <Link href="../sessionForm" asChild>
+        <Link href="../session-form" asChild>
           <Button marginTop={12}>Krijo nje votim</Button>
         </Link>
       </View>

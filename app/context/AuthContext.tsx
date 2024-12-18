@@ -25,7 +25,7 @@ export function useSession() {
   return value;
 }
 
-export function SessionProvider({ children }: PropsWithChildren) {
+function SessionProvider({ children }: PropsWithChildren) {
   const [[isLoading, session], setSession] = useStorageState('session');
 
   return (
@@ -45,3 +45,5 @@ export function SessionProvider({ children }: PropsWithChildren) {
     </AuthContext.Provider>
   );
 }
+
+export default SessionProvider;

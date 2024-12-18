@@ -5,21 +5,21 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
 import { Avatar, H2, SizableText, Stack, Text, XStack } from 'tamagui';
-import { AvatarDemo } from '../components/Avatar';
+import { AvatarDemo } from '../../components/Avatar';
 
 const IMAGES = [
   {
-    url: require('../assets/1.avif'),
+    url: require('../../assets/1.avif'),
     title: 'Kassarita',
     location: 'Rruga Leke Dukagjini, 19',
   },
   {
-    url: require('../assets/2.avif'),
+    url: require('../../assets/2.avif'),
     title: 'Bon Vivant',
     location: 'Sheshi Skenderbeu, 122',
   },
   {
-    url: require('../assets/3.avif'),
+    url: require('../../assets/3.avif'),
     title: 'Waffle House',
     location: 'Rruga G SU 8, 122',
   },
