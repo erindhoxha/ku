@@ -6,14 +6,15 @@ interface ButtonProps extends React.ComponentProps<typeof TButton> {
   children: React.ReactNode;
   ref: React.Ref<HTMLButtonElement>;
   marginTop?: number;
+  theme?: string;
 }
 
-const Button = forwardRef(({ children, marginTop, ...props }: ButtonProps, ref: LegacyRef<TamaguiElement>) => {
+const Button = forwardRef(({ children, marginTop, theme, ...props }: ButtonProps, ref: LegacyRef<TamaguiElement>) => {
   return (
     <TButton
       {...props}
       ref={ref}
-      theme="blue"
+      theme={theme || 'blue'}
       size="$3"
       marginTop={marginTop}
       style={{

@@ -29,18 +29,18 @@ export default function Tab() {
         gap="$1"
         padding="">
         {/* <H4 color="$white">{status[0].toUpperCase() + status.slice(1)}</H4> */}
-        <Stack gap="$0">
-          <Label theme="blue" color="$white" size="$4" htmlFor="title">
+        <Stack gap="$1">
+          <Label theme="input" color="$white" size="$3" htmlFor="title">
             Titulli
           </Label>
           <Input
-            theme="blue"
+            theme="input"
             placeholder="P.sh ku po hajme sonte?"
-            placeholderTextColor="rgb(70, 98, 138)"
+            placeholderTextColor="rgb(90, 90, 90)"
             style={{
               borderRadius: 4,
               borderWidth: 1,
-              borderColor: 'rgb(47, 61, 80)',
+              borderColor: 'rgb(181, 181, 181)',
               padding: 0,
               height: 42,
               color: 'white',
@@ -51,23 +51,23 @@ export default function Tab() {
           />
         </Stack>
 
-        <Stack>
-          <Label theme="blue" size="$4" htmlFor="description">
+        <Stack gap="$1">
+          <Label theme="input" color="$white" size="$3" htmlFor="description">
             Detajet
           </Label>
           <TextArea
-            placeholderTextColor="rgb(70, 98, 138)"
+            placeholderTextColor="rgb(90, 90, 90)"
             onSubmitEditing={() => {
               console.log('submit');
               // submit form
             }}
             placeholder="P.sh hajde po knaqemi sonte ne..."
             rows={12}
-            theme="blue"
+            theme="input"
             style={{
               borderRadius: 4,
               borderWidth: 1,
-              borderColor: 'rgb(47, 61, 80)',
+              borderColor: 'rgb(181, 181, 181)',
               color: 'white',
               fontSize: 16,
               paddingLeft: 12,
@@ -76,8 +76,8 @@ export default function Tab() {
           />
         </Stack>
         <Form.Trigger asChild disabled={status !== 'off'}>
-          <Button theme="blue" size="$4" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
-            Krijo
+          <Button theme="green" size="$4" icon={status === 'submitting' ? () => <Spinner /> : undefined}>
+            Krijo votimin
           </Button>
         </Form.Trigger>
       </Form>

@@ -2,6 +2,7 @@
 // a dependency on react-native. If you are using tamagui, you can
 // import createMedia from there directly and avoid this line:
 import { createMedia } from '@tamagui/react-native-media-driver';
+import { green } from 'react-native-reanimated/lib/typescript/Colors';
 import { createFont, createTamagui, createTokens } from 'tamagui';
 
 // Create a font:
@@ -75,7 +76,8 @@ export const tokens = createTokens({
   color: {
     white: '#fff',
     black: '#000',
-    blue: 'rgb(16, 42, 76)',
+    blue: 'rgb(33, 103, 194)',
+    green: 'rgb(12, 115, 12)',
   },
 });
 
@@ -99,6 +101,10 @@ const config = createTamagui({
     },
     blue: {
       background: tokens.color.blue,
+      color: tokens.color.white,
+    },
+    green: {
+      background: tokens.color.green,
       color: tokens.color.white,
     },
   },

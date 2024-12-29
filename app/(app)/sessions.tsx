@@ -5,71 +5,71 @@ import { Session } from '../../components/Session';
 
 const SESSIONS = [
   {
-    title: 'Session 1',
+    title: 'Votimi 1',
     matched: false,
-    description: 'Description 1',
-    type: 'Type 1',
-    date: '12/07/24',
+    description: 'lorem ipsum dolor sit amet',
+    type: 'Restaurants/Bar/Nightlife',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 2',
+    title: 'Votimi 2',
     matched: false,
-    description: 'Description 1',
-    type: 'Type 1',
-    date: '12/07/24',
+    description: 'lorem ipsum dolor sit amet',
+    type: 'Restaurants/Bar/Nightlife',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 3',
+    title: 'Votimi 3',
     matched: false,
-    description: 'Description 1',
-    type: 'Type 1',
-    date: '12/07/24',
+    description: 'lorem ipsum dolor sit amet',
+    type: 'Restaurants/Bar/Nightlife',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 4',
+    title: 'Votimi 4',
     matched: false,
-    description: 'Description 1',
-    type: 'Type 1',
-    date: '12/07/24',
+    description: 'lorem ipsum dolor sit amet',
+    type: 'Restaurants/Bar/Nightlife',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 5',
+    title: 'Votimi 5',
     matched: false,
     description: 'Description 2',
     type: 'Type 2',
-    date: '12/07/24',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 6',
+    title: 'Votimi 6',
     matched: true,
     result: 'Drymades beach',
     description: 'Description 3',
     type: 'Type 3',
-    date: '12/07/24',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 7',
+    title: 'Votimi 7',
     matched: true,
     result: 'Drymades beach',
     description: 'Description 3',
     type: 'Type 3',
-    date: '12/07/24',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 8',
+    title: 'Votimi 8',
     matched: true,
     result: 'Drymades beach',
     description: 'Description 3',
     type: 'Type 3',
-    date: '12/07/24',
+    date: '12/07/2024',
   },
   {
-    title: 'Session 9',
+    title: 'Votimi 9',
     matched: true,
     result: 'Drymades beach',
     description: 'Description 3',
     type: 'Type 3',
-    date: '12/07/24',
+    date: '12/07/2024',
   },
 ];
 
@@ -77,7 +77,7 @@ const Tab = () => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <H1 color="$white" marginBottom={24}>
-        Sessions
+        Votimet
       </H1>
       <YStack gap="$1">
         {SESSIONS.map((session, index) => (

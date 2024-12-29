@@ -25,7 +25,7 @@ export default function Tab() {
           style={{
             width: '100%',
             height: 1,
-            backgroundColor: '#fff',
+            backgroundColor: 'rgb(54, 54, 54)',
             marginTop: 24,
             marginBottom: 20,
           }}
@@ -39,7 +39,7 @@ export default function Tab() {
           style={{
             width: '100%',
             height: 1,
-            backgroundColor: '#fff',
+            backgroundColor: 'rgb(54, 54, 54)',
             marginTop: 24,
             marginBottom: 20,
           }}
@@ -47,7 +47,9 @@ export default function Tab() {
         <H2 color="$white">Krijo nje votim</H2>
         <Text color="$white">Krijo nje votim, dhe pastaj shperndaje me grupin:</Text>
         <Link href="../session-form" asChild>
-          <Button marginTop={12}>Krijo nje votim</Button>
+          <Button theme="green" marginTop={12}>
+            Krijo nje votim
+          </Button>
         </Link>
       </View>
     </ScrollView>

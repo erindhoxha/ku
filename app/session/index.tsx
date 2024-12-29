@@ -213,6 +213,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     overflow: 'hidden',
+    backgroundColor: 'black',
   },
   buttonsContainer: {
     flexDirection: 'row',

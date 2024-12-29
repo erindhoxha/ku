@@ -77,12 +77,12 @@ const styles = StyleSheet.create({
   sessionActive: {
     borderWidth: 1,
     borderRadius: 12,
-    borderColor: 'rgba(255,255,255,0.1)',
+    borderColor: 'rgb(109, 109, 109)',
     backgroundColor: 'rgba(255,255,255,0.05)',
     overflow: 'hidden',
   },
   session: {
-    borderColor: 'rgba(255,255,255,0.1)',
+    borderColor: 'rgb(62, 62, 62)',
     borderWidth: 1,
     borderRadius: 12,
   },
