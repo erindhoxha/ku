@@ -1,27 +1,27 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useCallback, useRef } from 'react';
-import { Image, StyleSheet, TouchableOpacity, View, type ImageSourcePropType } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { AntDesign } from '@expo/vector-icons';
-import { Swiper, type SwiperCardRefType } from 'rn-swiper-list';
-import { Avatar, H2, SizableText, Stack, Text, XStack } from 'tamagui';
-import { AvatarDemo } from '../../components/Avatar';
+import React, { useCallback, useRef } from "react";
+import { Image, StyleSheet, TouchableOpacity, View, type ImageSourcePropType } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { AntDesign } from "@expo/vector-icons";
+import { Swiper, type SwiperCardRefType } from "rn-swiper-list";
+import { Avatar, H2, SizableText, Stack, Text, XStack } from "tamagui";
+import { AvatarDemo } from "../../components/Avatar";
 
 const IMAGES = [
   {
-    url: require('../../assets/1.avif'),
-    title: 'Kassarita',
-    location: 'Rruga Leke Dukagjini, 19',
+    url: require("../../assets/1.avif"),
+    title: "Kassarita",
+    location: "Rruga Leke Dukagjini, 19",
   },
   {
-    url: require('../../assets/2.avif'),
-    title: 'Bon Vivant',
-    location: 'Sheshi Skenderbeu, 122',
+    url: require("../../assets/2.avif"),
+    title: "Bon Vivant",
+    location: "Sheshi Skenderbeu, 122",
   },
   {
-    url: require('../../assets/3.avif'),
-    title: 'Waffle House',
-    location: 'Rruga G SU 8, 122',
+    url: require("../../assets/3.avif"),
+    title: "Waffle House",
+    location: "Rruga G SU 8, 122",
   },
 ];
 
@@ -33,9 +33,9 @@ const Tab = () => {
       <View style={styles.renderCardContainer}>
         <View
           style={{
-            backgroundColor: 'rgba(0,0,0,0.8)',
-            width: '100%',
-            position: 'absolute',
+            backgroundColor: "rgba(0,0,0,0.8)",
+            width: "100%",
+            position: "absolute",
             zIndex: 2,
             bottom: 0,
             right: 0,
@@ -46,7 +46,7 @@ const Tab = () => {
             style={{
               fontSize: 24,
               zIndex: 2,
-              color: 'white',
+              color: "white",
               marginBottom: 6,
             }}>
             {image?.title}
@@ -55,7 +55,7 @@ const Tab = () => {
             style={{
               fontSize: 14,
               zIndex: 2,
-              color: 'white',
+              color: "white",
             }}>
             {image?.location}
           </Text>
@@ -71,13 +71,13 @@ const Tab = () => {
         style={[
           styles.overlayLabelContainer,
           {
-            backgroundColor: '#52b69a',
+            backgroundColor: "#52b69a",
           },
         ]}>
         <Text
           style={{
             fontSize: 32,
-            fontWeight: 'bold',
+            fontWeight: "bold",
           }}
           color="white">
           Like
@@ -92,13 +92,13 @@ const Tab = () => {
         style={[
           styles.overlayLabelContainer,
           {
-            backgroundColor: '#ee6055',
+            backgroundColor: "#ee6055",
           },
         ]}>
         <Text
           style={{
             fontSize: 32,
-            fontWeight: 'bold',
+            fontWeight: "bold",
           }}
           color="white">
           Dislike
@@ -110,40 +110,45 @@ const Tab = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
       <Stack>
-        <H2 marginBottom={12}>Ku po hajme sonte!?</H2>
+        <H2 color="$white" marginBottom={12}>
+          Ku po hajme sonte!?
+        </H2>
         <AvatarDemo />
         <XStack gap="$2" marginBottom={12}>
-          <Text>
-            Created by:{' '}
+          <Text color="$white">
+            Created by:{" "}
             <Text
+              color="$white"
               style={{
-                fontWeight: 'bold',
+                fontWeight: "bold",
               }}>
               Erind Hoxha
             </Text>
           </Text>
-          <Avatar circular size="$1">
+          {/* <Avatar circular size="$1">
             <Avatar.Image
               accessibilityLabel="Nate Wienert"
               src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?&w=100&h=100&dpr=2&q=80"
             />
             <Avatar.Fallback delayMs={600} backgroundColor="$blue10" />
-          </Avatar>
+          </Avatar> */}
         </XStack>
-        <Text>
-          Area:{' '}
+        <Text color="$white">
+          Area:{" "}
           <Text
+            color="$white"
             style={{
-              fontWeight: 'bold',
+              fontWeight: "bold",
             }}>
             Prishtine, Kosove
           </Text>
         </Text>
-        <Text>
-          Type:{' '}
+        <Text color="$white">
+          Type:{" "}
           <Text
+            color="$white"
             style={{
-              fontWeight: 'bold',
+              fontWeight: "bold",
             }}>
             Restaurants, Nightlife
           </Text>
@@ -156,25 +161,25 @@ const Tab = () => {
           data={IMAGES}
           renderCard={renderCard}
           onSwipeRight={(cardIndex) => {
-            console.log('cardIndex', cardIndex);
+            console.log("cardIndex", cardIndex);
           }}
           onSwipedAll={() => {
-            console.log('onSwipedAll');
+            console.log("onSwipedAll");
           }}
           onSwipeLeft={(cardIndex) => {
-            console.log('onSwipeLeft', cardIndex);
+            console.log("onSwipeLeft", cardIndex);
           }}
           disableTopSwipe
           OverlayLabelRight={OverlayLabelRight}
           OverlayLabelLeft={OverlayLabelLeft}
           onSwipeActive={() => {
-            console.log('onSwipeActive');
+            console.log("onSwipeActive");
           }}
           onSwipeStart={() => {
-            console.log('onSwipeStart');
+            console.log("onSwipeStart");
           }}
           onSwipeEnd={() => {
-            console.log('onSwipeEnd');
+            console.log("onSwipeEnd");
           }}
         />
       </View>
@@ -212,25 +217,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    overflow: 'hidden',
-    backgroundColor: 'black',
+    overflow: "hidden",
+    backgroundColor: "black",
   },
   buttonsContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     bottom: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     height: 80,
     borderRadius: 40,
     marginHorizontal: 20,
     aspectRatio: 1,
-    backgroundColor: '#ff9914',
+    backgroundColor: "#ff9914",
     elevation: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: 'black',
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "black",
     shadowOpacity: 0.1,
     shadowOffset: {
       width: 0,
@@ -238,41 +243,41 @@ const styles = StyleSheet.create({
     },
   },
   successButton: {
-    backgroundColor: '#52b69a',
+    backgroundColor: "#52b69a",
   },
   dangerButton: {
-    backgroundColor: '#ee6055',
+    backgroundColor: "#ee6055",
   },
   buttonText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   cardStyle: {
-    width: '100%',
-    height: '85%',
+    width: "100%",
+    height: "85%",
     borderRadius: 15,
   },
   renderCardContainer: {
     borderRadius: 15,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   renderCardImage: {
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
     borderRadius: 15,
   },
   subContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   overlayLabelContainer: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderRadius: 15,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     paddingBottom: 24,
   },
 });
